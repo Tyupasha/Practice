@@ -1,0 +1,11 @@
+commit 758a494035fcad1efc93d7666ec535876b2816af
+Author: Dima Tyupa <Dima Tyupa>
+Date:   Wed Feb 10 01:21:44 2016 +0300
+
+    Add status.txt
+
+commit 571567a7e40f61590510bc1c3b943d89a8490c9d
+Author: Dima Tyupa <Dima Tyupa>
+Date:   Wed Feb 10 01:16:47 2016 +0300
+
+    Add .gitignore
