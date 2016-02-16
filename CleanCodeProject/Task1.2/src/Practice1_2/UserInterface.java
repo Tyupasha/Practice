@@ -1,16 +1,19 @@
+package Practice1_2;
+
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- * Created by Dima on 15.02.2016.
- */
+
 public class UserInterface {
+
     public static void main(String[] args) throws IOException {
+        final String FILE_NAME = "history.json";
         int choice = 9;
-        ArrayList<Message> chat = new ArrayList();
+        Functions functions = new Functions();
+        ArrayList<Message> chat = new ArrayList<>();
 
         while (choice != 0) {
             System.out.println("Hey, user! What u gonna do?");
@@ -21,6 +24,7 @@ public class UserInterface {
             System.out.println("5 - Find messages by author");
             System.out.println("6 - Find by period of time");
             System.out.println("7 - Download messages from history");
+            System.out.println("8 - Find message by key word/lexeme");
             System.out.println("0 - Exit");
             System.out.println("Your choice? ");
             Scanner in = new Scanner(System.in);
@@ -29,37 +33,43 @@ public class UserInterface {
 
             switch (choice) {
                 case 1:
-                    Message message = Functions.add_message();
+                    Message message = functions.addMessage();
                     chat.add(message);
                     break;
                 case 2:
                     System.out.println("Input id: ");
-                    Scanner in2 = new Scanner(System.in);
-                    String id = in2.nextLine();
-                    Functions.delete_by_id(id);
+                    String id = in.nextLine();
+                    functions.deleteById(id);
                     break;
                 case 3:
-                    Functions.read_history(new FileReader("history.json"));
+                    functions.readHistory(new FileReader(FILE_NAME));
                     break;
                 case 4:
-                    Functions.write_history(new FileWriter("history.json"), chat);
+                    functions.writeHistory(new FileWriter(FILE_NAME), chat);
                     break;
                 case 5:
                     System.out.println("Input author: ");
-                    Scanner in3 = new Scanner(System.in);
-                    String author = in3.nextLine();
-                    System.out.println(Functions.find_by_author(author));
+                    String author = in.nextLine();
+                    System.out.println(functions.findByAuthor(author));
                     break;
                 case 6:
-                    System.out.println("Input first limit: ");
                     Scanner in6 = new Scanner(System.in);
-                    long lim1 = in6.nextLong();
+                    System.out.println("Please input date in format \"dd/MM/yyyy\"");
+                    System.out.println("Input first limit: ");
+                    String lim1 = in6.nextLine();
                     System.out.println("Input second limit: ");
-                    long lim2 = in6.nextLong();
-                    System.out.println(Functions.find_by_date(lim1, lim2));
+                    String lim2 = in6.nextLine();
+                    System.out.println(functions.findByDate(lim1, lim2));
                     break;
                 case 7:
-                    System.out.println(Functions.download_messages(new FileReader("history.json"), chat));
+                    System.out.println(functions.downloadMessages(new FileReader(FILE_NAME), chat));
+                    break;
+                case 8:
+                    System.out.println("Input key word/lexeme: ");
+                    Scanner in8 = new Scanner(System.in);
+                    String keyWord = in8.nextLine();
+                    System.out.println(functions.findBySubstring(keyWord));
+                    break;
                 case 0:
                     break;
                 default:

@@ -1,6 +1,6 @@
-/**
- * Created by Dima on 15.02.2016.
- */
+package Practice1_2;
+
+
 public class Message {
     private String id;
     private String author;
