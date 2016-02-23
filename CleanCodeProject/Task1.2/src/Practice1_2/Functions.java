@@ -4,9 +4,6 @@ import java.io.*;
 import java.util.*;
 import org.json.simple.*;
 import java.text.*;
-import java.util.logging.FileHandler;
-import java.util.logging.Logger;
-import java.util.logging.SimpleFormatter;
 
 public class Functions {
 
@@ -49,19 +46,19 @@ public class Functions {
     }
 
     public void readHistory(FileReader a) {
-        Object ob = JSONValue.parse(a);
-        JSONArray array = (JSONArray) ob;
+        Object obj= JSONValue.parse(a);
+        JSONArray JsArray = (JSONArray) obj;
 
-        for (Object anArray : array) {
+        for (Object anArray : JsArray) {
             System.out.println(anArray);
         }
     }
 
     public String downloadMessages(FileReader a, ArrayList<Message> al) {
         Object ob = JSONValue.parse(a);
-        JSONArray array = (JSONArray) ob;
+        JSONArray JsArray = (JSONArray) ob;
 
-        for (Object anArray : array) {
+        for (Object anArray : JsArray) {
             JSONObject obj = (JSONObject) anArray;
             String id = (String) obj.get("id");
             String author = (String) obj.get("author");
@@ -78,7 +75,7 @@ public class Functions {
     }
 
     public void writeHistory(FileWriter a, ArrayList<Message> al) {
-        JSONArray arr = new JSONArray();
+        JSONArray JsArray = new JSONArray();
 
         for (Message anAl : al) {
             JSONObject object = new JSONObject();
@@ -86,10 +83,10 @@ public class Functions {
             object.put("author", anAl.get_author());
             object.put("timestamp", anAl.get_timestamp());
             object.put("message", anAl.get_message());
-            arr.add(object);
+            JsArray.add(object);
         }
         try {
-            a.write(arr.toJSONString());
+            a.write(JsArray.toJSONString());
             a.flush();
             a.close();
         } catch (IOException e) {
@@ -123,54 +120,54 @@ public class Functions {
 
     public String findByDate(String limit1, String limit2) throws FileNotFoundException {
         Object ob = JSONValue.parse(new FileReader("history.json"));
-        JSONArray array = (JSONArray) ob;
+        JSONArray JsArray = (JSONArray) ob;
         Calendar calDate1 = convertStringDateToCalendar(limit1);
         Calendar calDate2 = convertStringDateToCalendar(limit2);
-        JSONArray dates = new JSONArray();
+        JSONArray JsArrayDates = new JSONArray();
 
-        for (int i = 0; i < array.size(); i++) {
-            JSONObject obj = (JSONObject) array.get(i);
+        for (int i = 0; i < JsArray.size(); i++) {
+            JSONObject obj = (JSONObject) JsArray.get(i);
             long longTime = (long) obj.get("timestamp");
             String strTime = getDate(longTime, "dd/MM/yyyy");
             Calendar calTime = convertStringDateToCalendar(strTime);
             if (calTime.after(calDate1) && (calTime.before(calDate2))) {
-                dates.add(array.get(i));
+                JsArrayDates.add(JsArray.get(i));
 
             }
         }
-        if (dates.isEmpty()) {
+        if (JsArrayDates.isEmpty()) {
             return "For this period the history is empty";
         } else {
-            return dates.toJSONString();
+            return JsArrayDates.toJSONString();
         }
     }
 
     public String findByAuthor(String author) throws IOException {
         Object ob = JSONValue.parse(new FileReader("history.json"));
-        JSONArray array = (JSONArray) ob;
-        JSONArray authors = new JSONArray();
+        JSONArray JsArray = (JSONArray) ob;
+        JSONArray JsArrayAuthors = new JSONArray();
 
-        for (int i = 0; i < array.size(); i++) {
-            JSONObject obj = (JSONObject) array.get(i);
+        for (int i = 0; i < JsArray.size(); i++) {
+            JSONObject obj = (JSONObject) JsArray.get(i);
             if (obj.containsValue(author)) {
-                authors.add(array.get(i));
+                JsArrayAuthors.add(JsArray.get(i));
             }
         }
-        if (authors.isEmpty()) {
+        if (JsArrayAuthors.isEmpty()) {
             return "There is no messages by this author";
         } else {
-            return authors.toJSONString();
+            return JsArrayAuthors.toJSONString();
         }
     }
 
     public void deleteById(String id) throws IOException {
         Object ob = JSONValue.parse(new FileReader("history.json"));
-        JSONArray array = (JSONArray) ob;
+        JSONArray JsArray = (JSONArray) ob;
 
-        for (int i = 0; i < array.size(); i++) {
-            JSONObject obj = (JSONObject) array.get(i);
+        for (int i = 0; i < JsArray.size(); i++) {
+            JSONObject obj = (JSONObject) JsArray.get(i);
             if (obj.containsValue(id)) {
-                array.remove(i);
+                JsArray.remove(i);
                 System.out.println("Deleting has been done successfully!");
             } else {
                 System.out.println("There is no message with this id!");
@@ -178,7 +175,7 @@ public class Functions {
         }
         try {
             FileWriter fw = new FileWriter("history.json");
-            fw.write(array.toJSONString());
+            fw.write(JsArray.toJSONString());
             fw.flush();
             fw.close();
         } catch (Exception e) {
