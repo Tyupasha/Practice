@@ -1,0 +1,49 @@
+div.UserBar {
+    height: auto;
+    overflow-y: auto;
+    color: black;
+    display: block;
+    background-color: #ebe3d1;
+    border: 2px outset #405b32;
+    float: right;
+    width: 20em;
+    margin-right: 10em;
+}
+
+div.BarHeader {
+    text-align: center;
+    height: 1.5em;
+    overflow-y: auto;
+    color: black;
+    display: block;
+    border: 2px outset #405b32;
+    clear: both;
+    background-color: #ebe3d1;
+}
+
+div.Users {
+    text-align: left;
+    height: calc(100% - 50px);
+    overflow-y: auto;
+    color: black;
+    display: block;
+    background-color: #ebe3d1;
+    border: 2px outset #405b32;
+}
+
+li.Active {
+    background-color: #8d992f;
+    color: #ebe3d1;
+}
+li.NotActive {
+    background-color: #ebe3d1;
+}
+
+.Quote {
+    float: right;
+    width: 40em;
+    padding-top: 5em;
+    margin-left: 2em;
+    font-family: cursive;
+
+}
