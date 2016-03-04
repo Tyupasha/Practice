@@ -1,4 +1,4 @@
-package Practice1_2;
+package by.bsu.tyupa.up.cleancode;
 
 
 public class Message {
