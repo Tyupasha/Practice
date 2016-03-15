@@ -1,134 +1,101 @@
-div.ChatScreen {
-    height: auto;
-}
-div.ChatBox {
-    height: 100%;
-    overflow-y: auto;
-    color: black;
-    padding-top: 1em;
-    margin-left: 2em;
-    display: block;
-    background-color: #ebe3d1;
-    border: 2px outset #405b32;
-    width: 40em;
-    float: left;
-}
-div.ChatHead {
-    height: 1em;
-    margin-left: 2em;
-    width: calc(40em + 4px);
-    background-color: #405b32;
-    color: #cec9a9;
-    text-align: center;
-}
-div.Message {
-    display: block;
-    clear: both;
-}
-div.Message-info {
-    text-align: left;
-    font-family: cursive;
-    color: dimgray;
-}
-div.Message-text {
-    text-align: justify;
-    display: inline-block;
-    padding: 5px;
-    margin-bottom: 5px;
-    width: auto;
-    max-width: 90%;
-    background: #8d992f;
-    -webkit-border-radius: 10px 10px 10px 0px;
-    -moz-border-radius: 10px 10px 10px 0px;
-    border-radius: 10px 10px 10px 0px;
-    color: #cec9a9;
-}
-
-div.MyMessage {
-    display: block;
-    clear: both;
-}
-div.MyMessage-info {
-    text-align: right;
-    font-family: cursive;
-    color: dimgray;
-
-}
-div.MyMessage-text {
-    text-align: justify;
-    display: inline-block;
-    padding: 5px;
-    margin-bottom: 5px;
-    width: auto;
-    max-width: 90%;
-    background: #405b32;
-    -webkit-border-radius: 10px 10px 0px 10px;
-    -moz-border-radius: 10px 10px 0px 10px;
-    border-radius: 10px 10px 0px 10px;
-    color: #cec9a9;
-    float: right;
-}
-
-.Input {
-    height: 100%;
-    overflow-y: auto;
-    color: black;
-    display: block;
-    background-color: white;
-    width: 40em;
+.chat-box {
+    margin-top: 3%;
+    margin-left: 3%;
     border-color: #405b32;
-}
-form.Send textarea{
-    font-family: cursive;
+    border-width: medium;
+    border-style: solid;
+    width: 60%;
     height: auto;
-    overflow-y: auto;
-    color: black;
-    width: 80%;
+    background-color: #cec9a9;
     float: left;
-    resize: none;
-    font-size: 14px;
-    border: 1px solid #405b32;
+    font-family: cursive;
 }
+.chat-head {
+    background-color: #8d992f;
+    text-align: center;
+    width: 100%;
+    height: 10%;
+}
+
+.chat-screen {
+    height: 20em;
+    border-color: #405b32;
+    border-width: medium;
+    border-style: solid;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar{
+    width:12px;
+}
+::-webkit-scrollbar-thumb{
+    border-width:1px 1px 1px 2px;
+    border-color: #777;
+    background-color: #aaa;
+}
+::-webkit-scrollbar-thumb:hover{
+    border-width: 1px 1px 1px 2px;
+    border-color: #555;
+    background-color: #777;
+}
+::-webkit-scrollbar-track{
+    border-width:0;
+}
+::-webkit-scrollbar-track:hover{
+    border-left: solid 1px #aaa;
+    background-color: #eee;
+}
+
+.message {
+    width: 100%;
+    clear: both;
+    display: block;
+}
+.message-info {
+    text-align: left;
+}
+.message-text {
+    float: left;
+    background-color: #405b32;
+    border-radius: 0.5em 0.5em 0.5em 0em;
+    color: #ebe3d1;
+}
+.my-message-info {
+    text-align: right;
+}
+.my-message-text {
+    float: right;
+    background-color: #8d992f;
+    border-radius: 0.5em 0.5em 0em 0.5em;
+}
+
+.input {
+    background-color: #8d992f;
+}
+
+.text-area {
+    font-family: cursive;
+    margin-top: 1%;
+    margin-left: 1%;
+    width: 80%;
+    heigth: 100%;
+}
+
 .BtnSend {
-    width:19%;
-    float:right;
-    resize:none;
-    font-size: 100%;
-    height: 2.5em;
+    height: 100%;
+    width: 12%;
     color: #ebe3d1;
     text-decoration: none;
-    padding: 0.01em;
-    border-radius: 0.1em;
     background: #8d992f;
-    box-shadow: 0 -5px #405b32 inset;
+    box-shadow: 0 -3px #405b32 inset;
     transition: 0.2s;
+    border-radius: 1em;
+    border-color: #405b32;
 }
 .BtnSend:hover {
     background: #405b32;
 }
-
 .BtnSend:active {
     background: #405b32;
     box-shadow: 0 5px #8d992f inset;
-}
-
-.BtnMes {
-    width:1em;
-    float:right;
-    resize:none;
-    font-size: 100%;
-    height: 1em;
-    color: #ebe3d1;
-    text-decoration: none;
-    border-radius: 0.1em;
-    background: #8d992f;
-    transition: 0.2s;
-}
-.BtnMes:hover {
-    background: #405b32;
-}
-
-.BtnMes:active {
-    background: #405b32;
-    box-shadow: 0 1px #8d992f inset;
 }

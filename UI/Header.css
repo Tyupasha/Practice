@@ -5,7 +5,7 @@
 
 header {
     font-family: cursive;
-    font-size: 200%;
+    font-size: 150%;
     font-weight: bold;
     color:  #F9FCFF;
     letter-spacing: -0.11em;
@@ -22,17 +22,18 @@ body {
     background-color: #cec9a9;
 }
 
-.NavBar {
-    padding-top: 0.1em;
-    font-size: 0.99em;
+.nav-bar {
+    margin-left: auto;
+    padding-top: auto;
+    font-size: 100%;
     float: right;
 }
-ul.NavBar {
-    margin-left: 5em;
+ul.nav-bar {
+    margin-left: auto;
     margin-right: 1em;
     padding: 0em;
 }
-ul.NavBar li {
+ul.nav-bar li {
     display: inline;
 }
 
@@ -52,15 +53,13 @@ a.Btn:active {
     background: #405b32;
     box-shadow: 0 5px #8d992f inset;
 }
-
-div.Empty {
-    height: 2em;
-}
-
 footer {
-    padding-top: 1.5em;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
     width: 100%;
-    background-color:  #8d992f;
-    color:  #F9FCFF;
-    float: right;
+    padding: 5px;
+    background: #405b32;
+    text-align: center;
+    font-family: cursive;
 }
