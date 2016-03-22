@@ -79,6 +79,7 @@
     margin-left: 1%;
     width: 80%;
     heigth: 100%;
+    resize: none;
 }
 
 .BtnSend {
@@ -98,4 +99,19 @@
 .BtnSend:active {
     background: #405b32;
     box-shadow: 0 5px #8d992f inset;
+}
+
+.del-message {
+    width: 100%;
+    clear: both;
+    display: block;
+}
+.del-message-info {
+    text-align: right;
+}
+.del-message-text {
+    float: right;
+    background-color: #797979;
+    border-radius: 0.5em 0.5em 0.5em 0em;
+    color: #ebe3d1;
 }
