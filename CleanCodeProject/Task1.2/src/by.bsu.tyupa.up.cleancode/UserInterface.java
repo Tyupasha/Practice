@@ -1,4 +1,4 @@
-package by.bsu.tyupa.up.cleancode;
+package Practice1_2;
 
 
 
@@ -24,13 +24,13 @@ public class UserInterface {
         ArrayList<Message> chat = new ArrayList<>();
 
         while(condition) {
-            functions.show_interface();
+            functions.showInterface();
 
             Scanner in = new Scanner(System.in);
             switch (in.nextInt()) {
 
                 case 1:
-                    Message message = functions.add_message();
+                    Message message = functions.addMessage();
                     chat.add(message);
 
                     log.info("User add message");
@@ -41,31 +41,28 @@ public class UserInterface {
                     System.out.println("Input id: ");
 
                     String id = in2.nextLine();
-                    functions.delete_by_id(id);
+                    functions.deleteById(id);
 
                     log.info("User deleted message by id");
                     break;
 
                 case 3:
-                    functions.read_history(new FileReader(FILE_NAME), chat);
+                    functions.loadCurrentHistory(chat);
 
                     log.info("User read a message history");
                     break;
 
                 case 4:
-                    functions.write_history(new FileWriter(FILE_NAME), chat);
+                    functions.writeCurrentHistoryToFile(chat);
 
-                    log.info("User rewrote a message history");
+                    log.info("User (re)wrote a message history to file");
                     break;
 
                 case 5:
-                    Scanner in5 = new Scanner(System.in);
-                    System.out.println("Input author: ");
+                    System.out.println(functions.loadAllHistory(chat));
 
-                    String author = in5.nextLine();
-                    System.out.println(functions.find_by_author(author));
+                    log.info("User downloaded messages from history");
 
-                    log.info("User found messages by author");
                     break;
 
                 case 6:
@@ -78,15 +75,19 @@ public class UserInterface {
                     System.out.println("Input second limit: ");
                     String lim2 = in6.nextLine();
 
-                    System.out.println(functions.find_by_date(lim1, lim2));
+                    System.out.println(functions.findByBate(lim1, lim2));
 
                     log.info("User found messages by period of time");
                     break;
 
                 case 7:
-                    System.out.println(functions.load_messages(new FileReader(FILE_NAME), chat));
+                    Scanner in5 = new Scanner(System.in);
+                    System.out.println("Input author: ");
 
-                    log.info("User downloaded messages from history");
+                    String author = in5.nextLine();
+                    System.out.println(functions.findByAuthor(author));
+
+                    log.info("User found messages by author");
                     break;
 
                 case 8:
@@ -94,11 +95,20 @@ public class UserInterface {
                     Scanner in8 = new Scanner(System.in);
                     String keyWord = in8.nextLine();
 
-                    System.out.println(functions.find_by_substring(keyWord));
+                    System.out.println(functions.findBySubstring(keyWord));
 
                     log.info("User found messages by key word/lexeme");
                     break;
 
+                case 9:
+                    System.out.println("Input regular expression: ");
+                    Scanner in9 = new Scanner(System.in);
+                    String regExp = in9.nextLine();
+
+                    System.out.println(functions.findByRegEx(regExp));
+
+                    log.info("User found messages by regular expression");
+                    break;
                 case 0:
                     condition = false;
                     break;

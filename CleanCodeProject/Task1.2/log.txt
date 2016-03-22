@@ -1,14 +1,12 @@
-фев 16, 2016 11:33:26 PM Practice1_2.UserInterface main
+мар 22, 2016 5:17:27 PM Practice1_2.UserInterface main
 INFO: User add message
-фев 16, 2016 11:33:38 PM Practice1_2.UserInterface main
-INFO: User call a message history
-фев 16, 2016 11:33:44 PM Practice1_2.UserInterface main
-INFO: User downloaded messages from history
-фев 16, 2016 11:34:06 PM Practice1_2.UserInterface main
+мар 22, 2016 5:17:46 PM Practice1_2.UserInterface main
 INFO: User add message
-фев 16, 2016 11:34:13 PM Practice1_2.UserInterface main
-INFO: User rewrite a message history
-фев 16, 2016 11:34:17 PM Practice1_2.UserInterface main
-INFO: User call a message history
-фев 16, 2016 11:34:28 PM Practice1_2.UserInterface main
-INFO: User found messages by key word/lexeme
+мар 22, 2016 5:18:05 PM Practice1_2.UserInterface main
+INFO: User add message
+мар 22, 2016 5:18:18 PM Practice1_2.UserInterface main
+INFO: User (re)wrote a message history to file
+мар 22, 2016 5:18:27 PM Practice1_2.UserInterface main
+INFO: User read a message history
+мар 22, 2016 5:18:32 PM Practice1_2.UserInterface main
+INFO: User read a message history
