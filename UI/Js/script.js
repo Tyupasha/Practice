@@ -6,6 +6,14 @@ var user;
 var messages = [];
 
 window.onload = function() {
+    var userList = localStorage.getItem('user');
+    if(userList == undefined) {
+        return;
+    }
+    userList = JSON.parse(userList);
+    user = userList;
+    setUserOnUI(user);
+
    var messageList = localStorage.getItem('messages');
     if (messageList == undefined) {
         return;
@@ -19,13 +27,8 @@ window.onload = function() {
             addMessageOnUI(messageList[i]);
         }
     }
-    var userList = localStorage.getItem('user');
-    if(userList == undefined) {
-        return;
-    }
-    userList = JSON.parse(userList);
-    user = userList;
-    setUserOnUI(userList);
+
+
 };
 
 function sendMessage() {
@@ -51,6 +54,8 @@ function sendMessage() {
     };
     saveToLocalStorage(newMessage);
     addMessageOnUI(newMessage);
+
+    alert(messages);
 }
 
 function saveToLocalStorage(message) {
@@ -58,8 +63,15 @@ function saveToLocalStorage(message) {
         alert('localStorage is not accessible');
         return;
     }
+
+    var messageList = localStorage.getItem('messages');
+    messageList = JSON.parse(messageList);
+    for(var i in messageList) {
+        messages.push(messageList[i]);
+    }
     messages.push(message);
     localStorage.setItem('messages', JSON.stringify(messages));
+    messages = [];
 }
 
 function addMessageOnUI(newMessage) {
@@ -72,7 +84,7 @@ function addMessageOnUI(newMessage) {
         ' <a href = "#" class ="change-mes" title = "Edit message" onclick="editMessage()">' +
         '<img src = "http://s1.iconbird.com/ico/2013/3/636/w80h8013939672873.png" width=20em height=20em></a>' +
         '<a href = "#" class ="delete-mes" title = "Delete message" onclick="deleteMessage()">' +
-        '<img src = "http://www.iconsearch.ru/uploads/icons/49handdrawing/128x128/bin-full.png" width=20em height=20em></a>' + newMessage.user;
+        '<img src = "http://www.iconsearch.ru/uploads/icons/49handdrawing/128x128/bin-full.png" width=20em height=20em></a>' + user;
 
 
     var messageTextDiv = document.createElement('div');
@@ -232,7 +244,7 @@ function addDeletedMessageOnUI(message) {
 
     var mesInfo = document.createElement('div');
     mesInfo.className = 'del-message-info';
-    mesInfo.innerHTML = message.date + ' ' + message.user;
+    mesInfo.innerHTML = message.date + ' ' + user;
 
     var mesText = document.createElement('div');
     mesText.className = 'del-message-text';
