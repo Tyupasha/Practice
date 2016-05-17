@@ -1,0 +1,117 @@
+.chat-box {
+    margin-top: 3%;
+    margin-left: 3%;
+    border-color: #405b32;
+    border-width: medium;
+    border-style: solid;
+    width: 60%;
+    height: auto;
+    background-color: #cec9a9;
+    float: left;
+    font-family: cursive;
+}
+.chat-head {
+    background-color: #8d992f;
+    text-align: center;
+    width: 100%;
+    height: 10%;
+}
+
+.chat-screen {
+    height: 20em;
+    border-color: #405b32;
+    border-width: medium;
+    border-style: solid;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar{
+    width:12px;
+}
+::-webkit-scrollbar-thumb{
+    border-width:1px 1px 1px 2px;
+    border-color: #777;
+    background-color: #aaa;
+}
+::-webkit-scrollbar-thumb:hover{
+    border-width: 1px 1px 1px 2px;
+    border-color: #555;
+    background-color: #777;
+}
+::-webkit-scrollbar-track{
+    border-width:0;
+}
+::-webkit-scrollbar-track:hover{
+    border-left: solid 1px #aaa;
+    background-color: #eee;
+}
+
+.message {
+    width: 100%;
+    clear: both;
+    display: block;
+}
+.message-info {
+    text-align: left;
+}
+.message-text {
+    float: left;
+    background-color: #405b32;
+    border-radius: 0.5em 0.5em 0.5em 0em;
+    color: #ebe3d1;
+}
+.my-message-info {
+    text-align: right;
+}
+.my-message-text {
+    float: right;
+    background-color: #8d992f;
+    border-radius: 0.5em 0.5em 0em 0.5em;
+}
+
+.input {
+    background-color: #8d992f;
+}
+
+.text-area {
+    font-family: cursive;
+    margin-top: 1%;
+    margin-left: 1%;
+    width: 80%;
+    heigth: 100%;
+    resize: none;
+}
+
+.BtnSend {
+    height: 100%;
+    width: 12%;
+    color: #ebe3d1;
+    text-decoration: none;
+    background: #8d992f;
+    box-shadow: 0 -3px #405b32 inset;
+    transition: 0.2s;
+    border-radius: 1em;
+    border-color: #405b32;
+}
+.BtnSend:hover {
+    background: #405b32;
+}
+.BtnSend:active {
+    background: #405b32;
+    box-shadow: 0 5px #8d992f inset;
+}
+
+.del-message {
+    width: 100%;
+    clear: both;
+    display: block;
+}
+.del-message-info {
+    text-align: right;
+}
+.del-message-text {
+    float: right;
+    background-color: #797979;
+    border-radius: 0.5em 0.5em 0.5em 0em;
+    color: #ebe3d1;
+}

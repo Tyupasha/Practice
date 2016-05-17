@@ -1,0 +1,25 @@
+.user-panel {
+    margin-top: 3%;
+    margin-left: 3%;
+    border-color: #405b32;
+    border-width: medium;
+    border-style: solid;
+    width: 30%;
+    height: auto;
+    background-color: #cec9a9;
+    font-family: cursive;
+    float: right;
+}
+.user-panel-head {
+    background-color: #8d992f;
+    text-align: center;
+}
+.users {
+    text-align: center;
+}
+
+.users ul {
+    list-style-type: none;
+}
+
+

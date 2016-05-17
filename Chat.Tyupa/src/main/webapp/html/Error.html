@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wrong password or login</title>
+    <style type="text/css">
+        .header {
+            font-family: cursive;
+            font-size: 150%;
+            font-weight: bold;
+            color: #F9FCFF;
+            letter-spacing: -0.11em;
+            background-color: #8d992f;
+            text-shadow: -0.08em 0px 0.07em #cec9a9;
+            margin: 0%;
+            padding: 0%;
+        }
+        .div {
+            display: inline-block;
+            color: #405b32;
+        }
+        .error {
+            font-family: cursive;
+            color: #405b32;
+        }
+        .form {
+            font-family: cursive;
+            color: #405b32;
+        }
+        .footer {
+            position: fixed;
+            bottom: 0px;
+            right: 0px;
+            width: 100%;
+            padding: 5px;
+            background: #405b32;
+            text-align: center;
+            font-family: cursive;
+        }
+    </style>
+</head>
+<body style="background-color: #cec9a9;">
+
+<header class="header">
+    <span>C</span><span>h</span>a<span>t</span><div class="div"><span>T</span><span>e</span><span>r</span></div>
+</header>
+<center>
+    <div class="error">
+        <p>Wrong password or username! Try it again! </p>
+    </div>
+    <div class="form">
+        <form action="/login" method="post">
+            <p> Your name: <input name="username"></p>
+            <p> Password: <input type="password" name="pass"></p>
+            <button type=”submit”>Let's chat</button>
+        </form>
+    </div>
+</center>
+<footer class="footer">
+    <p> (c) Dima Tyupa 2016 </p>
+</footer>
+</body>
+</html>
