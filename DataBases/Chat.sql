@@ -26,12 +26,13 @@ DROP TABLE IF EXISTS `messages`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `messages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `text_date` varchar(100) DEFAULT NULL,
-  `user_id` int(11) NOT NULL DEFAULT '1',
+  `text` varchar(100) NOT NULL,
+  `date` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+  `user_id` int(11) DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `user_id_idx` (`user_id`),
-  CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+  CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +41,7 @@ CREATE TABLE `messages` (
 
 LOCK TABLES `messages` WRITE;
 /*!40000 ALTER TABLE `messages` DISABLE KEYS */;
-INSERT INTO `messages` VALUES (5,'18.05.2016 0:13',1),(6,'18.05.2016 0:14',2),(7,'18.05.2016 0:15',3),(8,'18.05.2016 0:16',4),(9,'18.05.2016 0:17',5),(10,'18.05.2016 0:18',6),(11,'18.05.2016 0:19',7),(12,'18.05.2016 0:20',8),(13,'18.05.2016 0:21',9),(14,'18.05.2016 0:22',10);
+INSERT INTO `messages` VALUES (11,'Hello!','2016-05-16 13:45:00.000000',2),(12,'Aha','2016-05-16 13:45:00.000000',3),(13,'Hey!','2016-05-16 13:46:00.000000',2),(14,'Hello, its me :DD','2016-05-16 13:44:00.000000',4),(15,'LOOOL, ahahah :D','2016-05-16 13:47:00.000000',6),(16,'Blue till I die!','2016-05-16 13:43:00.000000',5),(17,'How are u?','2016-05-16 13:52:00.000000',2),(18,'Thanks!','2016-05-16 13:42:00.000000',8),(19,'Yoohuu!','2016-05-16 13:57:00.000000',9),(20,'OMG -_-','2016-05-16 13:45:00.000000',7),(21,'Hello! Blablabla','2016-05-16 13:59:00.000000',5);
 /*!40000 ALTER TABLE `messages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -53,9 +54,9 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
+  `name` varchar(75) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,7 +65,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Dima Tyupa'),(2,'Alex Afanasenko'),(3,'Nastya Dets'),(4,'Nastya Hapaeva'),(5,'Anton Kazak'),(6,'Andrey Burets'),(7,'Evgeniy Pozdnyakov'),(8,'Ivan Kuharenko'),(9,'Sergey Yurkevich'),(10,'Nikolay Rudoy');
+INSERT INTO `users` VALUES (1,'Dima Tyupa'),(2,'Sergey Yurkevich'),(3,'Ivan Kuharenko'),(4,'Anton Kazak'),(5,'Alex Afanasenko'),(6,'Nastya Dets'),(7,'Yulya Bogdan'),(8,'Vlad Tulay'),(9,'Andrey Burets'),(10,'Vlad Ivanov'),(11,'Dima Tyupa');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -77,4 +78,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-05-18  0:42:09
+-- Dump completed on 2016-05-24 23:35:24

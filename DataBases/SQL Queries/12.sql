@@ -1,0 +1,1 @@
+SELECT users.name, count(messages.text) from users,messages where datediff(messages.date, '2015-05-09%') group by users.id;

@@ -1,0 +1,1 @@
+select users.name, messages.text, messages.date from users, messages where users.id = messages.user_id and users.name like 'Sergey%' order by messages.date;

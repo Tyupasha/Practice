@@ -1,0 +1,1 @@
+SELECT messages.text, messages.date from messages where length(messages.text) > 50;

@@ -1,0 +1,1 @@
+SELECT distinct users.name from users;
